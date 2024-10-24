@@ -1,0 +1,83 @@
+.todo{
+  display: flex;
+  margin: 20px 0;
+}
+li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+li > p {
+  border: 2px solid rgb(191, 191, 191);
+  width: 600px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo > input{
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  border: 3px solid #dfebeb;
+  font-size: 20px;
+}
+
+li.completed{
+  text-decoration: line-through;
+  color: red;
+}
+
+.todo > button {
+  margin-left: 10px;
+}
+
+[data-title] {
+  position: relative; /* Относительное позиционирование */ 
+  
+}
+[data-title]::after {
+  width: 315px;
+  font-size: 16px;
+  height: 20px;
+  content: attr(data-title); /* Выводим текст из атрибута data-title */
+  position: absolute; /* Абсолютное позиционирование */
+  left: 0; top: -25px; /* Положение подсказки */
+  opacity: 0; /* Скрываем подсказку, делая её прозрачной */
+  transition: 0.5s; /* Время появления подсказки */
+  pointer-events: none; /* Подсказка не реагирует на курсор */
+  background: rgba(57, 137, 201, 0.9); /* Синий цвет фона */
+  color: #fff; /* Белый цвет текста */
+  padding-bottom: 2px; padding-left: 2px;/* Поля вокруг текста */
+}
+[data-title]:hover::after {
+  opacity: 1; /* Показываем подсказку */
+}
+
+@media (max-width: 825px) {
+  .todo > input, li > p{
+    width: 500px;
+  }
+}
+
+@media (max-width: 650px) {
+  .todo > input, li > p{
+    width: 350px;
+  }
+}
+
+@media (max-width: 500px) {
+  .todo, li {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  li button {
+    width: 350px;
+  }
+  .todo > button {
+    margin-left: 0px;
+}
+}

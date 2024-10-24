@@ -1,0 +1,16 @@
+.filterBTn {
+    display: flex;
+}
+
+.filterBTn > button:not(:last-child) {
+    margin-right: 10px;
+}
+
+@media (max-width: 780px) {
+    .filterBTn {
+        flex-direction: column;
+    }
+    .filterBTn > button:not(:last-child) {
+        margin-right: 0px;
+    }
+}
